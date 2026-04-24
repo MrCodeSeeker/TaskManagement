@@ -1,12 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { DUMMY_USERS } from './dummy-users';
+import { User } from './user/user.model';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone:false,
 })
 export class AppComponent {
   title = 'first-angular-app';
+  users = DUMMY_USERS;
+  selectedUser?: User| undefined;
+  onSelectdUser(user: User) {
+    this.selectedUser = user;
+  }
 }
+
